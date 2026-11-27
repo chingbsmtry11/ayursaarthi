@@ -1,0 +1,74 @@
+python -m ingest.ingest --include-draft
+wrote 3 chunks -> /root/ayursaarthi/data/processed/chunks.jsonl (0 warnings)
+python -m kg.build_kg --include-draft
+KG: 2 dravyas, 24 nodes, 30 edges -> /root/ayursaarthi/data/processed/kg.json
+python -m scripts.smoke_test --batch --llm
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 10682.91it/s]
+retrieval mode: bm25+dense+graph | chunks: 3
+Pitta-pacifying dravyas (graph): ['Guduchi', 'Amalaki']
+====================================================================== 
+Q: What is the virya of Amalaki?
+   dravyas found: ['Amalaki']
+   SAMPLE.003   score=0.0492 {'bm25': {'rank': 1, 'score': 0.9193}, 'dense': {'rank': 1, 'score': 0.8557}, 'graph': {'rank': 1, 'score': 1.0}}  | SAMPLE - Amalaki verse: describe rasa (five tastes except lavana), she
+   SAMPLE.002   score=0.0323 {'bm25': {'rank': 2, 'score': 0.0686}, 'dense': {'rank': 2, 'score': 0.7942}}  | SAMPLE - Guduchi verse: describe rasa, virya, vipaka and karma as stat
+   CS.Su.1.44   score=0.0159 {'dense': {'rank': 3, 'score': 0.7614}}  | SAMPLE - Dr. Manash to write/verify: Similarity (samanya) always cause
+   ANSWER: Amalaki has ushna virya.
+   STATS : {'seconds': 1.24, 'output_tokens': 11, 'tokens_per_sec': 17.06, 'prompt_tokens': 302}
+====================================================================== 
+Q: गुडूची के गुण क्या हैं
+   dravyas found: ['Guduchi']
+   SAMPLE.002   score=0.0492 {'bm25': {'rank': 1, 'score': 0.9441}, 'dense': {'rank': 1, 'score': 0.794}, 'graph': {'rank': 1, 'score': 1.0}}  | SAMPLE - Guduchi verse: describe rasa, virya, vipaka and karma as stat
+   SAMPLE.003   score=0.0323 {'bm25': {'rank': 2, 'score': 0.0656}, 'dense': {'rank': 2, 'score': 0.7707}}  | SAMPLE - Amalaki verse: describe rasa (five tastes except lavana), she
+   CS.Su.1.44   score=0.0159 {'dense': {'rank': 3, 'score': 0.751}}  | SAMPLE - Dr. Manash to write/verify: Similarity (samanya) always cause
+   ANSWER: No_Source
+
+[SAMPLE.004] [Devanagari verse - fill]
+Meaning: SAMPLE - Guduchi verse: Guduchi is tridoshaghna, rasayana, and jvarahara as stated in the verse.
+[CS.Su.1.45] sarva-vikārānām viśeṣa-viśeṣaḥ pratyayakaraṇam | sa evaṃ vāpi śarīreṇaivaṃ vyādhi-pratiṣedhaṃ prajñā-pūrtiṃ ca ||
+Meaning: SAMPLE - Dr. Manash to write/verify: This is the special indication of this medicine, which removes all diseases by its specific action in the body.
+Answer:
+   STATS : {'seconds': 12.54, 'output_tokens': 192, 'tokens_per_sec': 15.97, 'prompt_tokens': 301}
+====================================================================== 
+Q: giloy kis dosha ko shant karta hai
+   dravyas found: ['Guduchi']
+   SAMPLE.002   score=0.0325 {'dense': {'rank': 2, 'score': 0.7637}, 'graph': {'rank': 1, 'score': 1.0}}  | SAMPLE - Guduchi verse: describe rasa, virya, vipaka and karma as stat
+   SAMPLE.003   score=0.0164 {'dense': {'rank': 1, 'score': 0.7688}}  | SAMPLE - Amalaki verse: describe rasa (five tastes except lavana), she
+   CS.Su.1.44   score=0.0159 {'dense': {'rank': 3, 'score': 0.7584}}  | SAMPLE - Dr. Manash to write/verify: Similarity (samanya) always cause
+   ANSWER: NO_SOURCE
+
+[SAMPLE.001] [Devanagari verse - fill]
+Meaning: SAMPLE - Guduchi verse: Guduchi is Jvaraghna, Vishahara and Tridoshaghna. It enhances Agni and Ojas.
+[CS.Su.1.45] sarvadoṣaharī | viśeṣaḥ pittakaphaharam ||
+Meaning: SAMPLE - Guduchi verse: Guduchi is effective against all three doshas, especially Pitta and Kapha. It clears toxins and fever.
+[SAMPLE.002] [Devanagari verse - fill]
+Meaning: SAMPLE - Guduchi verse: Guduchi is Jvaraghna, Vishahara and Tridoshaghna. It enhances Agni and Ojas.
+   STATS : {'seconds': 12.02, 'output_tokens': 184, 'tokens_per_sec': 15.82, 'prompt_tokens': 303}
+====================================================================== 
+Q: Which herbs pacify Pitta?
+   dravyas found: []
+   SAMPLE.003   score=0.0328 {'bm25': {'rank': 1, 'score': 0.1091}, 'dense': {'rank': 1, 'score': 0.7862}}  | SAMPLE - Amalaki verse: describe rasa (five tastes except lavana), she
+   SAMPLE.002   score=0.0323 {'bm25': {'rank': 2, 'score': 0.0686}, 'dense': {'rank': 2, 'score': 0.7698}}  | SAMPLE - Guduchi verse: describe rasa, virya, vipaka and karma as stat
+   CS.Su.1.44   score=0.0159 {'dense': {'rank': 3, 'score': 0.7354}}  | SAMPLE - Dr. Manash to write/verify: Similarity (samanya) always cause
+   ANSWER: NO_SOURCE
+   STATS : {'seconds': 0.9, 'output_tokens': 7, 'tokens_per_sec': 18.88, 'prompt_tokens': 300}
+====================================================================== 
+Q: What does samanya and vishesha mean?
+   dravyas found: []
+   CS.Su.1.44   score=0.0328 {'bm25': {'rank': 1, 'score': 1.4049}, 'dense': {'rank': 1, 'score': 0.8588}}  | SAMPLE - Dr. Manash to write/verify: Similarity (samanya) always cause
+   SAMPLE.003   score=0.0161 {'dense': {'rank': 2, 'score': 0.8192}}  | SAMPLE - Amalaki verse: describe rasa (five tastes except lavana), she
+   SAMPLE.002   score=0.0159 {'dense': {'rank': 3, 'score': 0.8007}}  | SAMPLE - Guduchi verse: describe rasa, virya, vipaka and karma as stat
+   ANSWER: Samanya-Vishesha-Vada is a principle that explains how similarity or dissimilarity leads to increase or decrease of entities. This principle is used to understand the effects of substances on the body's doshas, dhatus, and malas. When two things are similar in qualities, they tend to increase each other's properties, while when they are dissimilar, their effects are opposite.
+
+This principle is also known as Samanya-Vishesha Siddhanta, which is one of the fundamental concepts in Ayurvedic pharmacology. It states that substances with similar qualities (samanya) will increase those qualities in the body, while those with opposing qualities (vishesha) will decrease them. This concept is used to understand how foods, herbs, and other substances interact with the body's tissues and doshas.
+
+The principle of samanya-vishesha is based on the idea that like increases like, and opposites balance. For example, if a person has excess Pitta dosha, which is hot in nature, consuming spicy foods would increase Pitta because the food shares similar qualities (samanya). On the other hand, consuming cooling foods, which are opposite to Pitta's heat, would decrease
+   STATS : {'seconds': 15.93, 'output_tokens': 250, 'tokens_per_sec': 15.8, 'prompt_tokens': 303}
+====================================================================== 
+Q: What is the capital of France?
+   dravyas found: []
+   SAMPLE.002   score=0.0164 {'dense': {'rank': 1, 'score': 0.7336}}  | SAMPLE - Guduchi verse: describe rasa, virya, vipaka and karma as stat
+   SAMPLE.003   score=0.0161 {'dense': {'rank': 2, 'score': 0.7145}}  | SAMPLE - Amalaki verse: describe rasa (five tastes except lavana), she
+   CS.Su.1.44   score=0.0159 {'dense': {'rank': 3, 'score': 0.6926}}  | SAMPLE - Dr. Manash to write/verify: Similarity (samanya) always cause
+   ANSWER: NO_SOURCE
+   STATS : {'seconds': 0.92, 'output_tokens': 7, 'tokens_per_sec': 18.43, 'prompt_tokens': 300}
