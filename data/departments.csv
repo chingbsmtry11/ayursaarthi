@@ -1,0 +1,21 @@
+complaint_keywords,department,reason_en,verse_id,review_status
+joint pain;knee pain;back pain;stiffness;swelling of joints;arthritis;जोड़ों में दर्द;घुटने में दर्द;कमर दर्द;गठिया;jodo me dard;ghutne me dard,Kayachikitsa / Panchakarma,"Joint and musculoskeletal complaints (Sandhigata Vata, Amavata) are managed in general medicine, often with Panchakarma",,draft
+acidity;heartburn;indigestion;gas;bloating;constipation;loose motions;एसिडिटी;पेट में जलन;गैस;कब्ज;अपच;dast;दस्त;pet me jalan,Kayachikitsa,"Digestive complaints (Amlapitta, Ajirna, Vibandha, Atisara) belong to general medicine",,draft
+fever;cold;cough;sore throat;बुखार;सर्दी;खांसी;जुकाम;gala kharab;गले में खराश;bukhar;khansi,Kayachikitsa,"Fever and respiratory complaints (Jvara, Kasa, Pratishyaya) belong to general medicine",,draft
+diabetes;high sugar;frequent urination;excess thirst;शुगर;मधुमेह;sugar,Kayachikitsa,Prameha is managed in general medicine,,draft
+high blood pressure;palpitations;high cholesterol;बीपी;ब्लड प्रेशर;धड़कन,Kayachikitsa,Cardiovascular and metabolic complaints belong to general medicine,,draft
+weight gain;obesity;मोटापा;वजन बढ़ना;motapa,Kayachikitsa / Swasthavritta,Sthaulya is managed in general medicine with diet and lifestyle (Swasthavritta),,draft
+skin rash;itching;eczema;psoriasis;acne;pimples;white patches;खुजली;दाद;मुंहासे;त्वचा;फुंसी;khujli,Kayachikitsa (Twak roga),Skin disorders (Kushtha) are managed in general medicine,,draft
+hair fall;dandruff;premature greying;बाल झड़ना;रूसी;सफेद बाल;baal jhadna,Kayachikitsa / Shalakya Tantra,Khalitya and Palitya are treated under general medicine or Shalakya,,draft
+eye pain;redness of eye;watering eyes;weak eyesight;आंखों में दर्द;आंख लाल;कम दिखना,Shalakya Tantra (Netra),Eye disorders belong to Shalakya Tantra,,draft
+ear pain;ear discharge;hearing loss;nose block;sinusitis;tonsillitis;mouth ulcer;toothache;कान दर्द;नाक बंद;दांत दर्द;मुंह के छाले,Shalakya Tantra (ENT and Dental),"Ear, nose, throat, mouth and dental disorders belong to Shalakya Tantra",,draft
+piles;haemorrhoids;fissure;fistula;wound;boil;abscess;बवासीर;भगंदर;फिशर;घाव;फोड़ा;bawasir,Shalya Tantra,"Ano-rectal disorders and wounds (Arsha, Bhagandara, Vrana) belong to Shalya Tantra",,draft
+kidney stone;urinary stone;पथरी;pathri,Shalya Tantra / Kayachikitsa,Ashmari is treated in Shalya Tantra or general medicine,,draft
+irregular periods;painful periods;white discharge;infertility;menopause;pregnancy care;pcod;मासिक धर्म;पीरियड;सफेद पानी;बांझपन;period,Prasuti Tantra evam Stri Roga,"Menstrual, reproductive and pregnancy care belong to Prasuti Tantra and Stri Roga",,draft
+child cough;child fever;poor appetite in child;child growth;bedwetting;बच्चे को खांसी;बच्चे को बुखार,Kaumarabhritya (Bala Roga),Children's health belongs to Kaumarabhritya,,draft
+stress;anxiety;sleeplessness;insomnia;low mood;poor memory;तनाव;चिंता;नींद नहीं;अनिद्रा;नींद नहीं आती;neend nahi aati;tension,Kayachikitsa (Manasa Roga),"Mental health complaints (Anidra, Chittodvega) belong to Manasa Roga under general medicine",,draft
+headache;migraine;सिरदर्द;माइग्रेन;sir dard,Kayachikitsa / Shalakya Tantra,Shirashoola is managed in general medicine or Shalakya,,draft
+paralysis;numbness;tremors;nerve pain;sciatica;लकवा;सुन्न;कंपन;साइटिका,Kayachikitsa / Panchakarma,"Neurological Vata disorders (Pakshaghata, Gridhrasi) are managed with Panchakarma",,draft
+diet advice;daily routine;seasonal routine;prevention;immunity;detox;दिनचर्या;ऋतुचर्या;इम्युनिटी,Swasthavritta,"Preventive care (Dinacharya, Ritucharya) belongs to Swasthavritta",,draft
+insect bite;food poisoning;allergy to food;कीड़े का काटना,Agada Tantra,Toxicology (Visha) belongs to Agada Tantra - emergencies go to hospital first,,draft
+low libido;erectile problems;low sperm count;कमजोरी;यौन,Kayachikitsa (Vajikarana),Reproductive vitality belongs to Vajikarana,,draft

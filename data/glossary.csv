@@ -1,0 +1,30 @@
+term,devanagari,synonyms,plain_en,category,verse_id,review_status
+Agni deepana,अग्निदीपन,deepana;dipana;agnideepana;appetiser,Increases digestive fire - improves appetite and the body's ability to digest food.,karma,,draft
+Pachana,पाचन,ama pachana;amapachana;digestive,Helps digest food and undigested toxins (ama) without directly increasing appetite.,karma,,draft
+Ama,आम,ama dosha;toxins,Undigested or half-digested material that forms when digestion is weak; considered a root of many diseases.,concept,,draft
+Anupana,अनुपान,vehicle;taken with,The liquid or food taken with or after a medicine (e.g. warm water or honey) to help it act and reach the right tissues.,administration,,draft
+Aushadha kala,औषधकाल,time of medicine;bheshaja kala,The prescribed time of taking a medicine - before food or after food or at bedtime etc. - chosen by the Vaidya for its effect.,administration,,draft
+Before food,भोजन से पहले,pragbhakta;before meals;khane se pehle,Taken shortly before a meal - often chosen for disorders of the lower body or to act with digestion.,administration,,draft
+After food,भोजन के बाद,adhobhakta;after meals;khane ke baad,Taken after a meal - often chosen for disorders of the upper body or to reduce irritation to the stomach.,administration,,draft
+Empty stomach,खाली पेट,abhakta;khali pet,Taken on an empty stomach - usually early morning - for a stronger action; only as the Vaidya advises.,administration,,draft
+Bedtime,रात को सोते समय,nishi;at night;sote samay,Taken at night before sleep.,administration,,draft
+Warm water,गुनगुना पानी,ushnodaka;luke warm water;koshna jala,Warm water used as anupana - commonly to support digestion and reduce Kapha and Vata.,administration,,draft
+Honey,मधु,madhu;shahad,Honey used as anupana - commonly for Kapha conditions. Never heat honey.,administration,,draft
+Ghee,घृत,ghrita;ghee,Clarified butter used as anupana or base - nourishing and Vata-Pitta pacifying.,administration,,draft
+Churna,चूर्ण,powder;churan,A fine powder of one or more herbs.,dosage form,,draft
+Vati,वटी,gutika;tablet;goli,A pill or tablet form of an Ayurvedic medicine.,dosage form,,draft
+Kwatha,क्वाथ,kashaya;decoction;kadha,A decoction made by boiling herbs in water and reducing it.,dosage form,,draft
+Asava Arishta,आसव अरिष्ट,asava;arishta;arishtam,Self-fermented liquid preparations; contain a small amount of natural alcohol.,dosage form,,draft
+Ghrita (medicated),घृत,medicated ghee,Ghee processed with herbs.,dosage form,,draft
+Taila,तैल,oil;tel,Medicated oil - for external application or internal use as advised.,dosage form,,draft
+Avaleha,अवलेह,lehya;paste;chyawanprash,A semi-solid jam-like preparation.,dosage form,,draft
+Bhasma,भस्म,ash,Calcined mineral or metal preparation - use only under a qualified Vaidya.,dosage form,,draft
+Rasayana,रसायन,rejuvenative,Rejuvenative therapy that supports tissues - immunity and longevity.,karma,,draft
+Pathya,पथ्य,wholesome;do's,Wholesome diet and habits recommended alongside treatment.,diet,,draft
+Apathya,अपथ्य,unwholesome;don'ts,Foods and habits to avoid during treatment.,diet,,draft
+Vata,वात,vayu,The dosha of movement - dry - cold - light - mobile.,dosha,CS.Su.1.59,draft
+Pitta,पित्त,,The dosha of transformation - hot - sharp - liquid.,dosha,CS.Su.1.60,draft
+Kapha,कफ,shleshma;cough phlegm,The dosha of structure - heavy - cold - stable - unctuous.,dosha,CS.Su.1.61,draft
+Tridosha,त्रिदोष,three doshas,Vata - Pitta and Kapha - the three bodily doshas.,dosha,CS.Su.1.57,draft
+Shamana,शमन,palliative,Pacifying treatment with medicines and diet - without purification.,treatment,,draft
+Shodhana,शोधन,purification;panchakarma,Purification therapy (Panchakarma) - only under supervision.,treatment,,draft

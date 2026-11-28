@@ -1,0 +1,112 @@
+term,language,category,review_status
+chest pain,en,cardiac,draft
+सीने में दर्द,hi,cardiac,draft
+,as,cardiac,draft
+pain spreading to left arm or jaw,en,cardiac,draft
+बाएँ हाथ या जबड़े तक दर्द,hi,cardiac,draft
+,as,cardiac,draft
+difficulty breathing,en,respiratory,draft
+सांस लेने में तकलीफ,hi,respiratory,draft
+,as,respiratory,draft
+breathless,en,respiratory,draft
+सांस फूलना,hi,respiratory,draft
+,as,respiratory,draft
+lips turning blue,en,respiratory,draft
+होंठ नीले पड़ना,hi,respiratory,draft
+,as,respiratory,draft
+unconscious,en,neuro,draft
+बेहोश,hi,neuro,draft
+,as,neuro,draft
+fainted,en,neuro,draft
+बेहोशी,hi,neuro,draft
+,as,neuro,draft
+seizure,en,neuro,draft
+दौरा,hi,neuro,draft
+,as,neuro,draft
+fits,en,neuro,draft
+मिर्गी का दौरा,hi,neuro,draft
+,as,neuro,draft
+sudden weakness on one side,en,neuro,draft
+शरीर के एक तरफ अचानक कमजोरी,hi,neuro,draft
+,as,neuro,draft
+face drooping,en,neuro,draft
+चेहरा टेढ़ा होना,hi,neuro,draft
+,as,neuro,draft
+slurred speech,en,neuro,draft
+बोलने में लड़खड़ाहट,hi,neuro,draft
+,as,neuro,draft
+worst headache of my life,en,neuro,draft
+अचानक बहुत तेज सिरदर्द,hi,neuro,draft
+,as,neuro,draft
+heavy bleeding,en,bleeding,draft
+बहुत ज्यादा खून बहना,hi,bleeding,draft
+,as,bleeding,draft
+vomiting blood,en,bleeding,draft
+खून की उल्टी,hi,bleeding,draft
+,as,bleeding,draft
+blood in stool,en,bleeding,draft
+मल में खून,hi,bleeding,draft
+,as,bleeding,draft
+black stool,en,bleeding,draft
+काला मल,hi,bleeding,draft
+,as,bleeding,draft
+bleeding in pregnancy,en,pregnancy,draft
+गर्भावस्था में खून आना,hi,pregnancy,draft
+,as,pregnancy,draft
+pregnant and severe abdominal pain,en,pregnancy,draft
+गर्भावस्था में तेज पेट दर्द,hi,pregnancy,draft
+,as,pregnancy,draft
+baby not moving,en,pregnancy,draft
+बच्चा हिल नहीं रहा,hi,pregnancy,draft
+,as,pregnancy,draft
+high fever in infant,en,paediatric,draft
+शिशु को तेज बुखार,hi,paediatric,draft
+,as,paediatric,draft
+baby not feeding,en,paediatric,draft
+शिशु दूध नहीं पी रहा,hi,paediatric,draft
+,as,paediatric,draft
+child very drowsy,en,paediatric,draft
+बच्चा बहुत सुस्त,hi,paediatric,draft
+,as,paediatric,draft
+poisoning,en,poisoning,draft
+जहर,hi,poisoning,draft
+,as,poisoning,draft
+snake bite,en,poisoning,draft
+सांप ने काटा,hi,poisoning,draft
+,as,poisoning,draft
+swallowed chemical,en,poisoning,draft
+केमिकल निगल लिया,hi,poisoning,draft
+,as,poisoning,draft
+overdose,en,poisoning,draft
+दवा की ज्यादा खुराक,hi,poisoning,draft
+,as,poisoning,draft
+suicidal thoughts,en,mental_health,draft
+आत्महत्या के विचार,hi,mental_health,draft
+,as,mental_health,draft
+want to die,en,mental_health,draft
+मरना चाहता हूँ,hi,mental_health,draft
+,as,mental_health,draft
+kill myself,en,mental_health,draft
+खुद को मार डालूँ,hi,mental_health,draft
+,as,mental_health,draft
+severe burn,en,trauma,draft
+गंभीर जलन,hi,trauma,draft
+,as,trauma,draft
+head injury,en,trauma,draft
+सिर में चोट,hi,trauma,draft
+,as,trauma,draft
+accident,en,trauma,draft
+दुर्घटना,hi,trauma,draft
+,as,trauma,draft
+swelling of face and throat,en,allergy,draft
+चेहरे और गले में सूजन,hi,allergy,draft
+,as,allergy,draft
+severe allergic reaction,en,allergy,draft
+गंभीर एलर्जी,hi,allergy,draft
+,as,allergy,draft
+severe abdominal pain,en,abdominal,draft
+पेट में बहुत तेज दर्द,hi,abdominal,draft
+,as,abdominal,draft
+fever with stiff neck,en,fever,draft
+बुखार के साथ गर्दन अकड़ना,hi,fever,draft
+,as,fever,draft

@@ -22,7 +22,7 @@ def to_iast(text: str) -> str:
 
 def fold(text: str) -> str:
     """Lower-case ASCII form: strip diacritics, unify common spelling variants."""
-    t = to_iast(text).lower()
+    t = to_iast(text).lower().replace("ṃ", "n").replace("ṁ", "n")
     t = unicodedata.normalize("NFKD", t)
     t = "".join(c for c in t if not unicodedata.combining(c))
     # common romanisation variants -> one form
@@ -40,7 +40,7 @@ STOP = {"the", "a", "an", "of", "and", "or", "is", "are", "in", "to", "for", "wh
 
 
 def _plain(text: str) -> str:
-    t = unicodedata.normalize("NFKD", to_iast(text).lower())
+    t = unicodedata.normalize("NFKD", to_iast(text).lower().replace("ṃ", "n").replace("ṁ", "n"))
     return "".join(c for c in t if not unicodedata.combining(c))
 
 
@@ -51,4 +51,6 @@ def tokens(text: str) -> list[str]:
 
 def phrase(text: str) -> str:
     """Folded, punctuation-free form used for alias (name) matching."""
-    return " ".join(fold(t) for t in TOKEN.findall(_plain(text)))
+    # drop a word-final "a" so Hindi/Sanskrit spellings meet: गिलोय (giloya) = Giloy, निम्ब = Nimba
+    return " ".join(re.sub(r"(?<=[^aeiou])a$", "", fold(t)) if len(t) > 3 else fold(t)
+                    for t in TOKEN.findall(_plain(text)))

@@ -1,4 +1,4 @@
-.PHONY: data model smoke
+.PHONY: data model smoke test api ui
 PY=python
 DRAFT?=--include-draft
 
@@ -13,3 +13,12 @@ smoke: data      ## retrieval check (add LLM=1 to also generate answers)
 	$(PY) -m scripts.smoke_test --batch $(if $(LLM),--llm,)
 
 # For the final build use only approved rows:  make data DRAFT=
+
+test: data       ## run all eval questions through the full pipeline (writes eval/day2_results.csv)
+	$(PY) -m scripts.day2_test
+
+api:             ## REST API on 127.0.0.1:8000 (docs at /docs)
+	uvicorn api.main:app --host 127.0.0.1 --port 8000
+
+ui:              ## web demo on 127.0.0.1:7860
+	$(PY) -m app.ui

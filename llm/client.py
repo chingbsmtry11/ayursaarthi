@@ -14,15 +14,21 @@ OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434")
 MODEL = os.getenv("AYUR_MODEL", "hf.co/A-Aryam/AyurParam-GGUF:Q4_K_M")
 
 
-def chat(messages, max_tokens=250, temperature=0.15, json_mode=False, timeout=180):
-    """Return (text, stats). Low temperature as in the proposal (0.1-0.2)."""
+def chat(messages, max_tokens=250, temperature=0.15, json_mode=False, timeout=180, stop=None):
+    """Return (text, stats). Low temperature as in the proposal (0.1-0.2).
+
+    MOCK_LLM=1 returns a canned reply (for tests without a model)."""
+    if os.getenv("MOCK_LLM") == "1":
+        return _mock(messages, json_mode), {"seconds": 0, "output_tokens": 0, "tokens_per_sec": 0,
+                                            "prompt_tokens": 0, "mock": True}
     body = {
         "model": MODEL,
         "messages": messages,
         "stream": False,
         "keep_alive": "24h",  # keep model in RAM between requests
         "options": {"temperature": temperature, "num_predict": max_tokens,
-                    "num_ctx": 2048, "repeat_penalty": 1.1},
+                    "num_ctx": 2048, "repeat_penalty": 1.1,
+                    **({"stop": stop} if stop else {})},
     }
     if json_mode:
         body["format"] = "json"
@@ -50,3 +56,14 @@ def chat_stream(messages, max_tokens=250, temperature=0.15):
                 yield d.get("message", {}).get("content", "")
                 if d.get("done"):
                     break
+
+
+def _mock(messages, json_mode):
+    """Deterministic stand-in: echoes the passage meaning, or empty JSON."""
+    if json_mode:
+        return json.dumps({"symptoms": [], "site": "", "duration": ""})
+    content = messages[-1]["content"]
+    for line in content.splitlines():
+        if line.startswith("Meaning:"):
+            return line[len("Meaning:"):].strip()
+    return "MOCK"
