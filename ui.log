@@ -1,0 +1,6 @@
+python -m app.ui
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 4142.78it/s]
+make: *** [Makefile:24: ui] Terminated
+/usr/lib/python3.14/multiprocessing/resource_tracker.py:396: UserWarning: resource_tracker: There appear to be 2 leaked semaphore objects to clean up at shutdown: {'/loky-9227-o28uh_4t', '/loky-9227-dkzsocs7'}
+  warnings.warn(

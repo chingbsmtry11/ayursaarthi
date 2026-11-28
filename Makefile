@@ -1,4 +1,4 @@
-.PHONY: data model smoke test api ui
+.PHONY: data model smoke test api ui deploy status logs
 PY=python
 DRAFT?=--include-draft
 
@@ -22,3 +22,12 @@ api:             ## REST API on 127.0.0.1:8000 (docs at /docs)
 
 ui:              ## web demo on 127.0.0.1:7860
 	$(PY) -m app.ui
+
+deploy:          ## Day 3: services + HTTPS at aayu.svasthaayu.in
+	bash scripts/deploy.sh
+
+status:          ## are all services running?
+	systemctl --no-pager --lines=0 status ollama ayursaarthi-ui ayursaarthi-api caddy | grep -E "●|Active"
+
+logs:            ## last lines of the web demo's log
+	journalctl -u ayursaarthi-ui -n 40 --no-pager

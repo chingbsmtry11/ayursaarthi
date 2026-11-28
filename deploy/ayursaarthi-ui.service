@@ -1,0 +1,16 @@
+[Unit]
+Description=AyurSaarthi web demo (Gradio)
+After=network-online.target ollama.service
+Wants=ollama.service
+
+[Service]
+WorkingDirectory=/root/ayursaarthi
+Environment=HF_HUB_OFFLINE=1
+Environment=HOST=127.0.0.1
+Environment=PORT=7860
+ExecStart=/root/ayursaarthi/.venv/bin/python -m app.ui
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

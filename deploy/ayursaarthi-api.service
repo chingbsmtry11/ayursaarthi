@@ -1,0 +1,14 @@
+[Unit]
+Description=AyurSaarthi REST API (FastAPI)
+After=network-online.target ollama.service
+Wants=ollama.service
+
+[Service]
+WorkingDirectory=/root/ayursaarthi
+Environment=HF_HUB_OFFLINE=1
+ExecStart=/root/ayursaarthi/.venv/bin/uvicorn api.main:app --host 127.0.0.1 --port 8000 --root-path /api
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

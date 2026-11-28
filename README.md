@@ -1,5 +1,7 @@
 # AyurSaarthi
 
+**Live demo:** https://aayu.svasthaayu.in · **API docs:** https://aayu.svasthaayu.in/api/docs
+
 A source-grounded Ayurvedic care-journey assistant built on **AyurParam** (BharatGen).
 "Cite or abstain": every answer cites a verse from an expert-approved classical source, or the system declines to answer.
 

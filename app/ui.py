@@ -45,17 +45,19 @@ def fmt_profile(profiles):
 
 def ui_ask(q):
     r = E.ask(q)
-    md = f"{STATUS.get(r['status'], '')} {r['answer']}"
-    md += fmt_profile(r.get("dravya_profiles")) + fmt_warnings(r.get("warnings")) + fmt_citations(r.get("citations"))
+    md = fmt_warnings(r.get("warnings")).lstrip() + ("\n\n" if r.get("warnings") else "")
+    md += f"{STATUS.get(r['status'], '')} {r['answer']}"
+    md += fmt_profile(r.get("dravya_profiles")) + fmt_citations(r.get("citations"))
     return md + f"\n\n<small>⏱ {r.get('latency_s')} s · {DISCLAIMER}</small>"
 
 
 def ui_explain(text):
     r = E.explain_prescription(text)
-    md = f"{STATUS.get(r['status'], '')} {r['answer']}"
+    md = fmt_warnings(r.get("warnings")).lstrip() + ("\n\n" if r.get("warnings") else "")
+    md += f"{STATUS.get(r['status'], '')} {r['answer']}"
     for t in r.get("terms", []):
         md += f"\n- **{t['term']}**: {t['meaning']}"
-    md += fmt_profile(r.get("herbs")) + fmt_warnings(r.get("warnings")) + fmt_citations(r.get("citations"))
+    md += fmt_profile(r.get("herbs")) + fmt_citations(r.get("citations"))
     return md + f"\n\n<small>{DISCLAIMER}</small>"
 
 
@@ -87,7 +89,9 @@ with gr.Blocks(title="AyurSaarthi") as demo:
         c = gr.Textbox(label="Describe the problem", placeholder="Knee pain and stiffness for 3 months")
         cout = gr.Markdown()
         gr.Button("Find department", variant="primary").click(ui_route, c, cout)
-    gr.Markdown(f"<small>{DISCLAIMER}<br>AyurParam © BharatGen, CC-BY-4.0. Code Apache-2.0.</small>")
+    gr.Markdown(f"<small>{DISCLAIMER}<br>AyurParam © BharatGen, CC-BY-4.0. Code Apache-2.0 · "
+                "<a href='https://github.com/chingbsmtry11/ayursaarthi'>Source code</a> · "
+                "<a href='/api/docs'>API</a></small>")
 
 if __name__ == "__main__":
     demo.launch(server_name=os.getenv("HOST", "127.0.0.1"), server_port=int(os.getenv("PORT", "7860")),

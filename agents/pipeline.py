@@ -68,7 +68,8 @@ class AyurSaarthi:
         if not self.use_llm:
             return passage["meaning_en"], {"llm": False}
         from llm.client import chat
-        lang = "Answer in Hindi." if _lang(question) == "hi" else "Answer in English."
+        lang = ("Answer in simple everyday Hindi (Devanagari script) that a patient understands. "
+                "Do not copy or repeat the Sanskrit verse." if _lang(question) == "hi" else "Answer in English.")
         user = (f"Sanskrit: {passage['sanskrit']}\nMeaning: {passage['meaning_en']}\n"
                 + (f"Properties from the reviewed table: {facts}\n" if facts else "")
                 + f"\nUser question: {question}\n{lang}")
@@ -80,6 +81,31 @@ class AyurSaarthi:
         except Exception as e:  # model down -> fall back to the reviewed meaning
             return passage["meaning_en"], {"llm_error": str(e)}
 
+    HI = {"Madhura": "मधुर (मीठा)", "Amla": "अम्ल (खट्टा)", "Lavana": "लवण (नमकीन)", "Katu": "कटु (तीखा)",
+          "Tikta": "तिक्त (कड़वा)", "Kashaya": "कषाय (कसैला)", "Ushna": "उष्ण (गर्म)", "Sheeta": "शीत (ठंडा)",
+          "Anushnasheeta": "न अधिक गर्म, न ठंडा", "Guru": "गुरु (भारी)", "Laghu": "लघु (हल्का)",
+          "Snigdha": "स्निग्ध (चिकना)", "Ruksha": "रूक्ष (रूखा)", "Tikshna": "तीक्ष्ण (तेज़)", "Sara": "सर",
+          "Picchila": "पिच्छिल (लसलसा)", "Vata": "वात", "Pitta": "पित्त", "Kapha": "कफ"}
+
+    def _hi(self, csv_list):
+        return ", ".join(self.HI.get(x.strip(), x.strip()) for x in csv_list.split(",") if x.strip() and x.strip() != "-")
+
+    def _hindi_summary(self, p):
+        """Plain Hindi built only from the reviewed dravya table (no model)."""
+        parts = [f"{p['devanagari'] or p['name']} ({p['hindi'] or p['name']}) का रस {self._hi(p['rasa'])} है।",
+                 f"इसके गुण {self._hi(p['guna'])} हैं, वीर्य {self._hi(p['virya'])} और विपाक {self._hi(p['vipaka'])} है।"]
+        if p["pacifies"] != "-":
+            parts.append(f"यह {self._hi(p['pacifies'])} दोष को शांत करता है।")
+        if p["aggravates"] != "-":
+            parts.append(f"अधिक मात्रा में यह {self._hi(p['aggravates'])} बढ़ा सकता है।")
+        return " ".join(parts)
+
+    @staticmethod
+    def _copies_sanskrit(answer, passage):
+        a = set(re.findall(r"[\u0900-\u097F]{4,}", answer))
+        v = set(re.findall(r"[\u0900-\u097F]{4,}", passage.get("sanskrit", "")))
+        return bool(a) and len(a & v) / len(a) >= 0.3
+
     def _glossary_lookup(self, text):
         f = " " + phrase(text) + " "
         for g in self.glossary:
@@ -89,8 +115,11 @@ class AyurSaarthi:
         return None
 
     def _cite_hits(self, hits, dravyas):
-        """Cite the top passage; add the second only if it is the herb's own verse or a strong keyword hit."""
+        """Herb question: cite only that herb's own verses. Otherwise cite the top passage,
+        plus the second only if it is a strong keyword hit."""
         own = {v for d in dravyas for v in self.graph.g.nodes[d].get("verse_ids", [])}
+        if own:
+            return [h for h in hits if h["id"] in own][:2] or hits[:1]
         out = hits[:1]
         for h in hits[1:3]:
             s = h.get("signals", {})
@@ -198,6 +227,9 @@ class AyurSaarthi:
         raw, stats = self._explain(question, top, facts)
         allowed = {h["id"] for h in hits}
         answer, removed = S.verify_answer(raw, self.graph, dravyas, allowed)
+        if _lang(question) == "hi" and profiles and self._copies_sanskrit(answer, top):
+            removed.append({"sentence": answer, "reason": "repeated the Sanskrit verse instead of explaining"})
+            answer = self._hindi_summary(profiles[0])
         ok_g, ratio = S.grounded_enough(answer, top, facts, question) if _lang(question) == "en" else (True, None)
         if not ok_g:  # model drifted away from the passage -> show the reviewed meaning instead
             removed.append({"sentence": answer, "reason": f"not grounded in passage (overlap {ratio})"})
